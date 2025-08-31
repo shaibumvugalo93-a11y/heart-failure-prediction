@@ -1,318 +1,234 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mfumo wa Kutabiri Hatari ya Kifo - Ugonjwa wa Moyo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
-        /* CSS styles zimeachwa kama zilivyokuwa kwa sababu hazihitaji kubadilishwa */
-        body { background-color: #f0f8ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; }
-        .header { background: linear-gradient(135deg, #1a6fc4 0%, #1a3c6c 100%); color: white; padding: 2.5rem 0; margin-bottom: 2rem; border-bottom: 5px solid #ff6b6b; }
-        .header h1 { font-weight: 700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
-        .card { border-radius: 15px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); margin-bottom: 25px; border: none; overflow: hidden; transition: transform 0.3s ease; }
-        .card:hover { transform: translateY(-5px); }
-        .card-header { background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%); color: white; font-weight: 600; border-bottom: none; }
-        .form-label { font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem; }
-        .form-control, .form-select { border-radius: 8px; padding: 12px 15px; border: 2px solid #ddd; transition: border-color 0.3s; }
-        .form-control:focus, .form-select:focus { border-color: #4b6cb7; box-shadow: 0 0 0 0.25rem rgba(75, 108, 183, 0.25); }
-        .btn-primary { background: linear-gradient(to right, #4b6cb7, #182848); border: none; padding: 12px 30px; font-weight: 600; border-radius: 50px; transition: all 0.3s; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); background: linear-gradient(to right, #182848, #4b6cb7); }
-        .btn-outline-primary { color: #4b6cb7; border-color: #4b6cb7; border-radius: 50px; padding: 8px 20px; font-weight: 600; transition: all 0.3s; }
-        .btn-outline-primary:hover { background-color: #4b6cb7; color: white; transform: translateY(-2px); }
-        .result-box { display: none; padding: 25px; border-radius: 12px; margin-top: 25px; text-align: center; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); }
-        .high-risk { background: linear-gradient(135deg, #ff6b6b 0%, #c44141 100%); color: white; }
-        .medium-risk { background: linear-gradient(135deg, #ffd166 0%, #f4a261 100%); color: #333; }
-        .low-risk { background: linear-gradient(135deg, #06d6a0 0%, #049a75 100%); color: white; }
-        .risk-indicator { height: 10px; border-radius: 5px; margin: 15px 0; background: linear-gradient(to right, #06d6a0, #ffd166, #ff6b6b); }
-        .risk-value { font-size: 1.8rem; font-weight: 700; margin: 10px 0; }
-        .feature-box { background-color: #f8f9fa; border-radius: 10px; padding: 15px; margin-bottom: 15px; border-left: 4px solid #4b6cb7; }
-        footer { background: #2c3e50; color: white; padding: 1.5rem 0; margin-top: 3rem; }
-        .instructions { background-color: #e9f7fe; border-radius: 10px; padding: 20px; margin-bottom: 25px; border-left: 4px solid #1a6fc4; }
-        .deploy-info { background-color: #d4edda; border-radius: 10px; padding: 20px; margin-top: 20px; }
-        @media (max-width: 768px) { .container { padding: 15px; } .header h1 { font-size: 2rem; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mfumo wa Kutabiri Hatari ya Kifo - Ugonjwa wa Moyo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    body { background-color: #f0f8ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; }
+    .header { background: linear-gradient(135deg, #1a6fc4 0%, #1a3c6c 100%); color: white; padding: 2.5rem 0; margin-bottom: 2rem; border-bottom: 5px solid #ff6b6b; }
+    .header h1 { font-weight: 700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+    .card { border-radius: 15px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); margin-bottom: 25px; border: none; overflow: hidden; transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card-header { background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%); color: white; font-weight: 600; border-bottom: none; }
+    .form-label { font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem; }
+    .form-control, .form-select { border-radius: 8px; padding: 12px 15px; border: 2px solid #ddd; transition: border-color 0.3s; }
+    .form-control:focus, .form-select:focus { border-color: #4b6cb7; box-shadow: 0 0 0 0.25rem rgba(75, 108, 183, 0.25); }
+    .btn-primary { background: linear-gradient(to right, #4b6cb7, #182848); border: none; padding: 12px 30px; font-weight: 600; border-radius: 50px; transition: all 0.3s; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); background: linear-gradient(to right, #182848, #4b6cb7); }
+    .btn-outline-primary { color: #4b6cb7; border-color: #4b6cb7; border-radius: 50px; padding: 8px 20px; font-weight: 600; transition: all 0.3s; }
+    .btn-outline-primary:hover { background-color: #4b6cb7; color: white; transform: translateY(-2px); }
+    .result-box { display: none; padding: 25px; border-radius: 12px; margin-top: 25px; text-align: center; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); }
+    .high-risk { background: linear-gradient(135deg, #ff6b6b 0%, #c44141 100%); color: white; }
+    .medium-risk { background: linear-gradient(135deg, #ffd166 0%, #f4a261 100%); color: #333; }
+    .low-risk { background: linear-gradient(135deg, #06d6a0 0%, #049a75 100%); color: white; }
+    .risk-indicator { height: 10px; border-radius: 5px; margin: 15px 0; background: linear-gradient(to right, #06d6a0, #ffd166, #ff6b6b); }
+    .risk-value { font-size: 1.8rem; font-weight: 700; margin: 10px 0; }
+    .feature-box { background-color: #f8f9fa; border-radius: 10px; padding: 15px; margin-bottom: 15px; border-left: 4px solid #4b6cb7; }
+    footer { background: #2c3e50; color: white; padding: 1.5rem 0; margin-top: 3rem; }
+    .instructions { background-color: #e9f7fe; border-radius: 10px; padding: 20px; margin-bottom: 25px; border-left: 4px solid #1a6fc4; }
+    .deploy-info { background-color: #d4edda; border-radius: 10px; padding: 20px; margin-top: 20px; }
+    @media (max-width: 768px) { .container { padding: 15px; } .header h1 { font-size: 2rem; } }
+  </style>
 </head>
 <body>
-    <div class="header text-center">
-        <div class="container">
-            <h1 class="display-4">Mfumo wa Kutabiri Hatari ya Kifo kutokana na Ugonjwa wa Moyo</h1>
-            <p class="lead">Ingiza taarifa za mgonjwa ili kupata utabiri wa hatari ya kifo kutokana na ugonjwa wa moyo</p>
-        </div>
-    </div>
-
+  <div class="header text-center">
     <div class="container">
-        <div class="instructions">
-            <h4><i class="bi bi-info-circle"></i> Maelekezo ya Matumizi</h4>
-            <p class="mb-0">Jaza sehemu zote zilizo chini kwa taarifa za mgonjwa, kisha bofya kitufe cha "Pata Utabiri". Mfumo utakupa makadirio ya hatari ya kifo kutokana na ugonjwa wa moyo.</p>
-        </div>
+      <h1 class="display-4">Mfumo wa Kutabiri Hatari ya Kifo kutokana na Ugonjwa wa Moyo</h1>
+      <p class="lead">Ingiza taarifa za mgonjwa ili kupata utabiri wa hatari ya kifo kutokana na ugonjwa wa moyo</p>
+    </div>
+  </div>
 
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title text-center mb-0">Ingiza Taarifa za Mgonjwa</h3>
-                    </div>
-                    <div class="card-body">
-                        <form id="predictionForm">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="age" class="form-label">Umri (miaka)</label>
-                                    <input type="number" class="form-control" id="age" required min="1" max="120" placeholder="e.g., 65">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="anaemia" class="form-label">Anemia</label>
-                                    <select class="form-select" id="anaemia" required>
-                                        <option value="0">Hapana</option>
-                                        <option value="1">Ndio</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="creatinine_phosphokinase" class="form-label">Kiwango cha CPK (mcg/L)</label>
-                                    <input type="number" class="form-control" id="creatinine_phosphokinase" required min="0" placeholder="e.g., 582">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="ejection_fraction" class="form-label">Ejection Fraction (%)</label>
-                                    <input type="number" class="form-control" id="ejection_fraction" required min="0" max="100" placeholder="e.g., 20">
-                                </div>
-                            </div>
-
-
-                           <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="diabetes" class="form-label">Hali ya ugonjwa wa sukari mwilini (mg/dl)</label>
-                                    <select class="form-select" id="diabetes" required>
-                                        <option value="0">Hapana</option>
-                                        <option value="1">Ndio</option>
-                                    </select>
-                                </div>
-                          </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="ejection_fraction" class="form-label">Ejection Fraction (%)</label>
-                                    <input type="number" class="form-control" id="ejection_fraction" required min="0" max="100" placeholder="e.g., 20">
-                                </div>
-                            </div>
-
-
-
-
-
-
-
-
-
-                            
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="high_blood_pressure" class="form-label">Shinikizo la Juu la Damu</label>
-                                    <select class="form-select" id="high_blood_pressure" required>
-                                        <option value="0">Hapana</option>
-                                        <option value="1">Ndio</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="platelets" class="form-label">Kiwango cha Platelets (kiloplatelets/mL)</label>
-                                    <input type="number" class="form-control" id="platelets" required min="0" step="0.1" placeholder="e.g., 265000">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="serum_creatinine" class="form-label">Kiwango cha Serum Creatinine (mg/dL)</label>
-                                    <input type="number" class="form-control" id="serum_creatinine" required min="0" step="0.1" placeholder="e.g., 1.9">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="serum_sodium" class="form-label">Kiwango cha Serum Sodium (mEq/L)</label>
-                                    <input type="number" class="form-control" id="serum_sodium" required min="0" step="0.1" placeholder="e.g., 130">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="sex" class="form-label">Jinsia</label>
-                                    <select class="form-select" id="sex" required>
-                                        <option value="1">Mwanaume</option>
-                                        <option value="0">Mwanamke</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="smoking" class="form-label">Uvutaji Sigara</label>
-                                    <select class="form-select" id="smoking" required>
-                                        <option value="0">Hapana</option>
-                                        <option value="1">Ndio</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12 mb-3">
-                                    <label for="time" class="form-label">Muda wa Kufuatilia (siku)</label>
-                                    <input type="number" class="form-control" id="time" required min="0" placeholder="e.g., 4">
-                                </div>
-                            </div>
-
-                            <div class="text-center mt-4">
-                                <button type="submit" class="btn btn-primary btn-lg">Pata Utabiri</button>
-                            </div>
-                        </form>
-
-                        <div id="loading" class="text-center mt-4" style="display: none;">
-                            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
-                                <span class="visually-hidden">Inafanya kazi...</span>
-                            </div>
-                            <p class="mt-3">Inachambua taarifa, subiri kidogo...</p>
-                        </div>
-
-                        <div id="result" class="result-box">
-                            <h4 id="resultTitle">Matokeo ya Uchambuzi</h4>
-                            <div class="risk-indicator"></div>
-                            <div class="risk-value" id="riskValue"></div>
-                            <p id="resultDescription"></p>
-                            <div class="mt-3">
-                                <button id="resetButton" class="btn btn-outline-primary">Ingiza Taarifa Nyingine</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="deploy-info">
-            <h4><i class="bi bi-cloud-upload"></i> Maelezo ya Kuweka Mfumo Huku Kwenye Mtandao</h4>
-            <p>Mfumo huu umewekwa kwenye GitHub Pages bila malipo yoyote. Ili kuweka tovuti yako mwenyewe:</p>
-            <ol>
-                <li>Weka msimbo huu kwenye faili ya HTML na uiite <code>index.html</code></li>
-                <li>Pakia kwenye repository ya GitHub</li>
-                <li>Nenda kwenye Settings > Pages > Chagua "main" branch</li>
-                <li>Hifadhi mabadiliko na subiri dakika chache</li>
-                <li>Tovuti yako itakuwa live kwenye: <code>https://username.github.io/repository-name</code></li>
-            </ol>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">Maelezo Kuhusu Mfumo</h5>
-                    </div>
-                    <div class="card-body">
-                        <p>Mfumo huu unatumia algorithm maalum za kuchambua taarifa za mgonjwa na kutabiri hatari ya kifo kutokana na ugonjwa wa moyo. Utabiri unatokana na data ya kisayansi na utafiti uliofanywa na wataalamu wa afya.</p>
-                        <p><strong>Onyo:</strong> Matokeo haya ni utabiri tu na siyo utambuzi wa kimatibabu. Shauri la daktari ni muhimu kwa upimaji kamili na matibabu.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">Vipimo vya Kiafya Vinavyotumika</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="feature-box">
-                            <h6>Anaemia</h6>
-                            <p class="mb-0">Hali ambapo mwili una upungufu wa seli nyekundu za damu au haemoglobin.</p>
-                        </div>
-                        <div class="feature-box">
-                            <h6>Creatinine Phosphokinase (CPK)</h6>
-                            <p class="mb-0">Kiwango cha enzimu hii huongezeka baada ya shambulio la moyo.</p>
-                        </div>
-                        <div class="feature-box">
-                            <h6>Ejection Fraction</h6>
-                            <p class="mb-0">Kipimo cha asilimia ya damu inayotolewa na ventrikali ya kushoto kwa kila mpigo wa moyo.</p>
-                        </div>
-                        <div class="feature-box">
-                            <h6>Serum Creatinine & Sodium</h6>
-                            <p class="mb-0">Viashiria vya kazi ya figo. Viwango visivyo vya kawaida vinaweza kuashiria matatizo ya moyo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="instructions">
+      <h4><i class="bi bi-info-circle"></i> Maelekezo ya Matumizi</h4>
+      <p class="mb-0">Jaza sehemu zote kisha bofya "Pata Utabiri".</p>
     </div>
 
-    <footer class="text-center">
-        <div class="container">
-            <p class="mb-0">© 2023 Mfumo wa Kutabiri Hatari ya Kifo - Ugonjwa wa Moyo. Haki zote zimehifadhiwa.</p>
-            <p>Imebadilishwa kwa data ya heart failure</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title text-center mb-0">Ingiza Taarifa za Mgonjwa</h3>
+          </div>
+          <div class="card-body">
+            <form id="predictionForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="age" class="form-label">Umri (miaka)</label>
+                  <input type="number" class="form-control" id="age" required min="1" max="120" placeholder="e.g., 65">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="anaemia" class="form-label">Anemia</label>
+                  <select class="form-select" id="anaemia" required>
+                    <option value="0">Hapana</option>
+                    <option value="1">Ndio</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="creatinine_phosphokinase" class="form-label">Kiwango cha CPK (mcg/L)</label>
+                  <input type="number" class="form-control" id="creatinine_phosphokinase" required min="0" placeholder="e.g., 582">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="ejection_fraction" class="form-label">Ejection Fraction (%)</label>
+                  <input type="number" class="form-control" id="ejection_fraction" required min="0" max="100" placeholder="e.g., 20">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="diabetes" class="form-label">Ugonjwa wa Kisukari</label>
+                  <select class="form-select" id="diabetes" required>
+                    <option value="0">Hapana</option>
+                    <option value="1">Ndio</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="high_blood_pressure" class="form-label">Shinikizo la Juu la Damu</label>
+                  <select class="form-select" id="high_blood_pressure" required>
+                    <option value="0">Hapana</option>
+                    <option value="1">Ndio</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="platelets" class="form-label">Kiwango cha Platelets</label>
+                  <input type="number" class="form-control" id="platelets" required min="0" step="0.1" placeholder="e.g., 265000">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="serum_creatinine" class="form-label">Serum Creatinine (mg/dL)</label>
+                  <input type="number" class="form-control" id="serum_creatinine" required min="0" step="0.1" placeholder="e.g., 1.9">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="serum_sodium" class="form-label">Serum Sodium (mEq/L)</label>
+                  <input type="number" class="form-control" id="serum_sodium" required min="0" step="0.1" placeholder="e.g., 130">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="sex" class="form-label">Jinsia</label>
+                  <select class="form-select" id="sex" required>
+                    <option value="1">Mwanaume</option>
+                    <option value="0">Mwanamke</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="smoking" class="form-label">Uvutaji Sigara</label>
+                  <select class="form-select" id="smoking" required>
+                    <option value="0">Hapana</option>
+                    <option value="1">Ndio</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="time" class="form-label">Muda wa Kufuatilia (siku)</label>
+                  <input type="number" class="form-control" id="time" required min="0" placeholder="e.g., 4">
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Pata Utabiri</button>
+              </div>
+            </form>
+
+            <div id="loading" class="text-center mt-4" style="display: none;">
+              <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Inafanya kazi...</span>
+              </div>
+              <p class="mt-3">Inachambua taarifa, subiri kidogo...</p>
+            </div>
+
+            <div id="result" class="result-box">
+              <h4 id="resultTitle">Matokeo ya Uchambuzi</h4>
+              <div class="risk-indicator"></div>
+              <div class="risk-value" id="riskValue"></div>
+              <p id="resultDescription"></p>
+              <div class="mt-3">
+                <button id="resetButton" class="btn btn-outline-primary">Ingiza Taarifa Nyingine</button>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        document.getElementById('predictionForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show loading indicator
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('result').style.display = 'none';
-            
-            // Simulate processing time
-            setTimeout(function() {
-                // Get form values
-                const age = parseInt(document.getElementById('age').value);
-                const anaemia = parseInt(document.getElementById('anaemia').value);
-                const creatinine_phosphokinase = parseInt(document.getElementById('creatinine_phosphokinase').value);
-                const ejection_fraction = parseInt(document.getElementById('ejection_fraction').value);
-                const high_blood_pressure = parseInt(document.getElementById('high_blood_pressure').value);
-                const platelets = parseFloat(document.getElementById('platelets').value);
-                const serum_creatinine = parseFloat(document.getElementById('serum_creatinine').value);
-                const serum_sodium = parseFloat(document.getElementById('serum_sodium').value);
-                const sex = parseInt(document.getElementById('sex').value);
-                const smoking = parseInt(document.getElementById('smoking').value);
-                const time = parseInt(document.getElementById('time').value);
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-0">© 2023 Mfumo wa Kutabiri Hatari ya Kifo - Ugonjwa wa Moyo.</p>
+    </div>
+  </footer>
 
-                // Kazi ya kutabiri hatari kwa kutumia vigezo ulivyotaja.
-                // HUU NI MFANO WA KUHESABU TU, SIO MODEL HALISI.
-                // Unahitaji kubadilisha na kanuni halisi ya modeli yako ya machine learning.
-                let riskScore = 0;
-                
-                // Mfano wa kanuni ya kuhesabu hatari
-                if (age > 60) riskScore += 10;
-                if (anaemia === 1) riskScore += 5;
-                if (creatinine_phosphokinase > 1000) riskScore += 10;
-                if (ejection_fraction < 30) riskScore += 20;
-                if (high_blood_pressure === 1) riskScore += 8;
-                if (platelets < 200000 || platelets > 400000) riskScore += 5;
-                if (serum_creatinine > 2.0) riskScore += 15;
-                if (serum_sodium < 130) riskScore += 15;
-                if (smoking === 1) riskScore += 7;
-                
-                // Acha riskScore kati ya 0 na 100
-                riskScore = Math.min(100, Math.max(0, riskScore));
-                
-                // Matokeo
-                let riskLevel, riskDescription, resultClass;
-                
-                if (riskScore >= 60) {
-                    riskLevel = "Hatari Kubwa Sana";
-                    riskDescription = "Kulingana na taarifa ulizozingizia, kuna uwezekano mkubwa wa hatari ya kifo kutokana na ugonjwa wa moyo. Shauri la daktari linapendekezwa kwa dharura.";
-                    resultClass = "high-risk";
-                } else if (riskScore >= 35) {
-                    riskLevel = "Hatari ya Wastani";
-                    riskDescription = "Kuna hatari ya wastani ya kifo kutokana na ugonjwa wa moyo. Inashauriwa kubadilisha tabia za maisha na kufanya upimaji wa mara kwa mara.";
-                    resultClass = "medium-risk";
-                } else {
-                    riskLevel = "Hatari Ndogo";
-                    riskDescription = "Kulingana na taarifa ulizozingizia, hatari ya kifo kutokana na ugonjwa wa moyo ni ndogo. Endelea kuwa na tabia nzuri za maisha na kufanya cheki za mara kwa mara.";
-                    resultClass = "low-risk";
-                }
-                
-                document.getElementById('resultTitle').textContent = `Kiwango cha Hatari: ${riskLevel}`;
-                document.getElementById('riskValue').textContent = `Alama za Hatari: ${riskScore}%`;
-                document.getElementById('resultDescription').textContent = riskDescription;
-                document.getElementById('result').className = `result-box ${resultClass}`;
-                document.getElementById('result').style.display = 'block';
-                document.getElementById('loading').style.display = 'none';
-                
-            }, 2500); 
-        });
-        
-        document.getElementById('resetButton').addEventListener('click', function() {
-            document.getElementById('predictionForm').reset();
-            document.getElementById('result').style.display = 'none';
-        });
-    </script>
+  <script>
+    document.getElementById('predictionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('result').style.display = 'none';
+
+      setTimeout(function() {
+        const age = parseInt(document.getElementById('age').value);
+        const anaemia = parseInt(document.getElementById('anaemia').value);
+        const creatinine_phosphokinase = parseInt(document.getElementById('creatinine_phosphokinase').value);
+        const ejection_fraction = parseInt(document.getElementById('ejection_fraction').value);
+        const high_blood_pressure = parseInt(document.getElementById('high_blood_pressure').value);
+        const platelets = parseFloat(document.getElementById('platelets').value);
+        const serum_creatinine = parseFloat(document.getElementById('serum_creatinine').value);
+        const serum_sodium = parseFloat(document.getElementById('serum_sodium').value);
+        const sex = parseInt(document.getElementById('sex').value);
+        const smoking = parseInt(document.getElementById('smoking').value);
+        const time = parseInt(document.getElementById('time').value);
+
+        let riskScore = 0;
+        if (age > 60) riskScore += 10;
+        if (anaemia === 1) riskScore += 5;
+        if (creatinine_phosphokinase > 1000) riskScore += 10;
+        if (ejection_fraction < 30) riskScore += 20;
+        if (high_blood_pressure === 1) riskScore += 8;
+        if (platelets < 200000 || platelets > 400000) riskScore += 5;
+        if (serum_creatinine > 2.0) riskScore += 15;
+        if (serum_sodium < 130) riskScore += 15;
+        if (smoking === 1) riskScore += 7;
+
+        riskScore = Math.min(100, Math.max(0, riskScore));
+
+        let riskLevel, riskDescription, resultClass;
+        if (riskScore >= 60) {
+          riskLevel = "Hatari Kubwa Sana";
+          riskDescription = "Uwezekano mkubwa wa hatari ya kifo. Shauri la daktari linahitajika.";
+          resultClass = "high-risk";
+        } else if (riskScore >= 35) {
+          riskLevel = "Hatari ya Wastani";
+          riskDescription = "Kuna hatari ya wastani. Shauri kubadilisha tabia na kufanya upimaji mara kwa mara.";
+          resultClass = "medium-risk";
+        } else {
+          riskLevel = "Hatari Ndogo";
+          riskDescription = "Hatari ni ndogo. Endelea na tabia bora za kiafya.";
+          resultClass = "low-risk";
+        }
+
+        document.getElementById('resultTitle').textContent = `Kiwango cha Hatari: ${riskLevel}`;
+        document.getElementById('riskValue').textContent = `Alama za Hatari: ${riskScore}%`;
+        document.getElementById('resultDescription').textContent = riskDescription;
+        document.getElementById('result').className = `result-box ${resultClass}`;
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('loading').style.display = 'none';
+      }, 2500);
+    });
+
+    document.getElementById('resetButton').addEventListener('click', function() {
+      document.getElementById('predictionForm').reset();
+      document.getElementById('result').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
