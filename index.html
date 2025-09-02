@@ -42,7 +42,7 @@
   <div class="container">
     <div class="instructions">
       <h4><i class="bi bi-info-circle"></i> Maelekezo ya Matumizi</h4>
-      <p class="mb-0">Jaza sehemu zote kisha bofya "Pata Utabiri". Hover kwenye input kuona range ya kawaida.</p>
+      <p class="mb-0">Jaza sehemu zote kisha bofya "Pata Utabiri". Mfumo utatumia viwango vya WHO kutathmini hatari.</p>
     </div>
 
     <div class="row justify-content-center">
@@ -56,11 +56,11 @@
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="age" class="form-label">Umri (miaka)</label>
-                  <input type="number" class="form-control" id="age" required min="0" max="110" placeholder="e.g., 65 (0–110)" title="Range ya kawaida: 0–110 miaka">
+                  <input type="number" class="form-control" id="age" required placeholder="mfano: 65">
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="anaemia" class="form-label">Anemia</label>
-                  <select class="form-select" id="anaemia" required title="Hapana/Ndio">
+                  <select class="form-select" id="anaemia" required>
                     <option value="0">Hapana</option>
                     <option value="1">Ndio</option>
                   </select>
@@ -69,26 +69,26 @@
 
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="creatinine_phosphokinase" class="form-label">Kiwango cha CPK (mcg/L)</label>
-                  <input type="number" class="form-control" id="creatinine_phosphokinase" required min="24" max="800" placeholder="e.g., 582 (20–800 µg/L)" title="Range ya kawaida: 20–800 µg/L">
+                  <label for="creatinine_phosphokinase" class="form-label">Kiwango cha CPK (µg/L)</label>
+                  <input type="number" class="form-control" id="creatinine_phosphokinase" required placeholder="mfano: 100">
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="ejection_fraction" class="form-label">Ejection Fraction (%)</label>
-                  <input type="number" class="form-control" id="ejection_fraction" required min="30" max="80" placeholder="e.g., 55 (30–80%)" title="Range ya kawaida: 30–80%">
+                  <input type="number" class="form-control" id="ejection_fraction" required placeholder="mfano: 55">
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="diabetes" class="form-label">Ugonjwa wa Kisukari</label>
-                  <select class="form-select" id="diabetes" required title="Hapana/Ndio">
+                  <select class="form-select" id="diabetes" required>
                     <option value="0">Hapana</option>
                     <option value="1">Ndio</option>
                   </select>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="high_blood_pressure" class="form-label">Shinikizo la Juu la Damu</label>
-                  <select class="form-select" id="high_blood_pressure" required title="Hapana/Ndio">
+                  <select class="form-select" id="high_blood_pressure" required>
                     <option value="0">Hapana</option>
                     <option value="1">Ndio</option>
                   </select>
@@ -98,22 +98,22 @@
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="platelets" class="form-label">Kiwango cha Platelets (/µL)</label>
-                  <input type="number" class="form-control" id="platelets" required min="150000" max="450000" step="1" placeholder="e.g., 265000 (150,000–450,000)" title="Range ya kawaida: 150,000–450,000 /µL">
+                  <input type="number" class="form-control" id="platelets" required placeholder="mfano: 250000">
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="serum_creatinine" class="form-label">Serum Creatinine (mg/dL)</label>
-                  <input type="number" class="form-control" id="serum_creatinine" required min="0.6" max="1.3" step="0.1" placeholder="e.g., 1.0 (0.6–2.0 mg/dL)" title="Range ya kawaida: 0.6–2.0 mg/dL">
+                  <input type="number" class="form-control" id="serum_creatinine" required step="0.1" placeholder="mfano: 1.0">
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="serum_sodium" class="form-label">Serum Sodium (mEq/L)</label>
-                  <input type="number" class="form-control" id="serum_sodium" required min="135" max="145" step="1" placeholder="e.g., 140 (135–200 mEq/L)" title="Range ya kawaida: 135–200 mEq/L">
+                  <input type="number" class="form-control" id="serum_sodium" required placeholder="mfano: 140">
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="sex" class="form-label">Jinsia</label>
-                  <select class="form-select" id="sex" required title="Mwanaume/Mwanamke">
+                  <select class="form-select" id="sex" required>
                     <option value="1">Mwanaume</option>
                     <option value="0">Mwanamke</option>
                   </select>
@@ -123,14 +123,14 @@
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="smoking" class="form-label">Uvutaji Sigara</label>
-                  <select class="form-select" id="smoking" required title="Hapana/Ndio">
+                  <select class="form-select" id="smoking" required>
                     <option value="0">Hapana</option>
                     <option value="1">Ndio</option>
                   </select>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="time" class="form-label">Muda wa Kufuatilia (siku)</label>
-                  <input type="number" class="form-control" id="time" required min="0" max="3650" placeholder="e.g., 4 (0–3650 siku)" title="Range ya kawaida: 0–3650 siku">
+                  <input type="number" class="form-control" id="time" required placeholder="mfano: 300">
                 </div>
               </div>
 
@@ -187,14 +187,29 @@
         const time = parseInt(document.getElementById('time').value);
 
         let riskScore = 0;
+
+        // WHO based checks
         if (age > 60) riskScore += 10;
         if (anaemia === 1) riskScore += 5;
-        if (creatinine_phosphokinase > 800) riskScore += 10;
-        if (ejection_fraction < 30) riskScore += 20;
+
+        // CPK normal: 10–120 µg/L
+        if (creatinine_phosphokinase < 10 || creatinine_phosphokinase > 120) riskScore += 10;
+
+        // EF normal ≥ 55%, <40% = danger
+        if (ejection_fraction < 40) riskScore += 20;
+        else if (ejection_fraction < 55) riskScore += 10;
+
         if (high_blood_pressure === 1) riskScore += 8;
-        if (platelets < 150000 || platelets > 450000) riskScore += 5;
-        if (serum_creatinine > 1.3) riskScore += 15;
-        if (serum_sodium < 135) riskScore += 15;
+
+        // Platelets normal 150k–450k
+        if (platelets < 150000 || platelets > 450000) riskScore += 10;
+
+        // Serum creatinine normal 0.6–1.3
+        if (serum_creatinine < 0.6 || serum_creatinine > 1.3) riskScore += 15;
+
+        // Serum sodium normal 135–145
+        if (serum_sodium < 135 || serum_sodium > 145) riskScore += 15;
+
         if (smoking === 1) riskScore += 7;
 
         riskScore = Math.min(100, Math.max(0, riskScore));
